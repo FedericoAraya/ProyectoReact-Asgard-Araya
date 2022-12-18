@@ -1,5 +1,23 @@
-
-.logoAsgard{
-    height: 45px;
-    margin-left: 30px;
+.navbar {
+  box-shadow: 0px 0px 10px 0px;
+  font-weight: 600;
+}
+.logoAsgard {
+  height: 45px;
+  margin-left: 20px;
+}
+.offcanvas-body {
+  font-weight: 600;
+}
+.navbar-toggler {
+  border: none !important;
+  --bs-navbar-toggler-font-size: 25px;
+}
+.navbar-toggler:focus {
+  border: none !important;
+  box-shadow: none !important;
+}
+.btn-close {
+  border: none !important;
+  box-shadow: none !important;
 }

@@ -3,15 +3,14 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import Cart from "../../containers/OffCanvasCart";
-
+import CartWidget from "../CartWidget";
 import "./styles.css";
 
 const NavBar = () => {
   return (
     <>
       {["md"].map((expand) => (
-        <Navbar key={expand} bg="light" expand={expand} className="mb-3 ">
+        <Navbar key={expand} bg="light" expand={expand} className="mb-3">
           <Container fluid>
             <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`} />
             <Navbar.Brand href="#">
@@ -45,7 +44,7 @@ const NavBar = () => {
               </Offcanvas.Body>
             </Navbar.Offcanvas>
             <div>
-              <Cart/>
+              <CartWidget />
             </div>
           </Container>
         </Navbar>
