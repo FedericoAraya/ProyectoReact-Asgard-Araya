@@ -1,5 +1,11 @@
 .greeting-container{
-    height: 80vh;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.count-container{
+    height: 15vh;
     display: flex;
     align-items: center;
     justify-content: center;

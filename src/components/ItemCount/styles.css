@@ -1,0 +1,29 @@
+.contador{
+    border-radius: 10px;
+    border: 2px black solid;
+    width: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-right: 15px;
+    background-color: rgb(198, 231, 231);
+    
+}
+.modificarContador{
+    border: none;
+    background-color: transparent;
+    font-weight: 700;
+}
+span{
+    background-color: white;
+    width: 60px;
+    height:inherit;
+    text-align: center;
+}
+
+.onAdd{
+    border-radius: 10px;
+    border: 2px black solid;
+    font-weight: 500;
+}
