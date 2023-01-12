@@ -1,10 +1,17 @@
 .navbar {
   box-shadow: 0px 0px 10px 0px;
   font-weight: 600;
+  
  }
 .logoAsgard {
   height: 45px;
   margin-left: 20px;
+  background-color: transparent !important;
+}
+a{
+  color: black !important;
+  margin: 7px;
+  background-color: transparent !important;
 }
 .offcanvas-body {
   font-weight: 600;
