@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Shop } from "../../context/ShopProvider";
 import ItemCount from "../ItemCount";
-import "react-toastify/dist/ReactToastify.css";
 import "./styles.css";
 import OffCanvasCart from "../../containers/OffCanvasCart";
 
