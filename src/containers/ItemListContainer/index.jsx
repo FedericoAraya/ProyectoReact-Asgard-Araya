@@ -1,43 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../../components/ItemList";
-import productos from "../../data/data.json";
+import { db } from "../../firebase/config";
+import { collection, getDocs, query, where } from "firebase/firestore"; 
 import "./styles.css";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
   const [products, setProducts] = useState([]);
 
   const {categoryId} = useParams()
 
     useEffect(() => {
-    const promesa = new Promise((acc, rec) => {
-      setTimeout(() => {
-        acc(productos);
-        return acc
-      }, 2000);
-    });
-
-    promesa
-      .then((products) => {
+      let querySnapshot;
+      const getProducts = async () => {
         if (categoryId){
-        const productosFiltradosPorCategoria = products.filter(producto => producto.category === categoryId)
-        setProducts(productosFiltradosPorCategoria);
-      }else{
-        setProducts(products)
-      }
-      })
-      .catch((err) => {
-        alert("no se pudo traer el array");
+      const q = query(collection(db, "products"), where("category", "==", categoryId));
+      querySnapshot = await getDocs(q);
+         } else{
+          querySnapshot = await getDocs(collection(db, "products"));
+         }
+      const productosFirebase = [];
+      querySnapshot.forEach((doc) => {
+        
+        const product ={
+          id: doc.id,
+          ...doc.data()
+        }
+        productosFirebase.push(product)
       });
-  }, [categoryId]);
+      setProducts(productosFirebase)
+    }
+    getProducts();
 
+
+  }, [categoryId]);
+  
   return (
-    <>
-      <div className="greeting-container">
-        <h1>{greeting}</h1>
-      </div>      
+    
       <ItemList productos={products} />      
-    </>
+   
   );
 };
 

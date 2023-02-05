@@ -1,0 +1,19 @@
+.offCanvasCart{
+  width: 50%;
+  min-width: 300px;
+  background-color: transparent;
+}
+.col-md-4{
+  text-align: center;
+}
+.col-md-4 img{
+  width: 100%;
+}
+.fila3{
+  justify-content: space-between;
+}
+
+.achicarId{
+  font-size: x-small;
+ 
+}

@@ -1,13 +1,3 @@
-.greeting-container{
-    height: 20vh;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.greeting-container h1{
-    text-align: center;
-}
 .items-container{
     width: 100%;
     display: flex;

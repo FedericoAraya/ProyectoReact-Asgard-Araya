@@ -1,0 +1,28 @@
+form{
+    padding: 10px;
+}
+
+form label{
+    margin: 10px;
+    font-weight: 500;
+    width: 100%;
+   
+    
+}
+form label input{
+    margin-left: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    
+    
+}
+
+form label input:hover{
+    background-color: rgb(227, 227, 255);
+}
+
+form label span{
+    font-weight: 300;
+    color: red;
+    margin-left: 5px;
+}

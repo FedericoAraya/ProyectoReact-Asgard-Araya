@@ -1,3 +1,8 @@
 .card{
-    margin-bottom: 10px;
-    }
+    margin-top: 10px;
+}
+
+.card-text{
+    max-height: 120px;
+    overflow: hidden;
+  }  

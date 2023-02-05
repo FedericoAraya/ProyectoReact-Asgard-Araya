@@ -1,41 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../../components/ItemDetail";
-import productos from "../../data/data.json";
-
-
-
-
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../../firebase/config";
 
 const ItemDetailContainer = () => {
   const [detail, setDetail] = useState({});
-  const {id} = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    const promesa = new Promise((acc, rec) => {
-      setTimeout(() => {
-        acc(productos);
-      }, 2000);
-    });
-    promesa
-      .then((result) => {
-           const detalleDeProductoSeleccionado = result.find((producto)=> producto.idProd === Number(id) )
-           
-        setDetail(detalleDeProductoSeleccionado);
-        
-        })
-      .catch((err) => {
-        alert("no se pudo traer el array");
-      });
+
+
+const getProduct = async ( ) => {
+    const docRef = doc(db, "products", id);
+    const docSnap = await getDoc(docRef);
+    
+    if (docSnap.exists()) {
+      
+      const productDetail = {
+        id: docSnap.id,
+        ...docSnap.data()
+      }
+      setDetail(productDetail)
+    } else {
+      // doc.data() will be undefined in this case
+    
+    }
+  }
+  getProduct()
+
   }, [id]);
 
   return (
     <div>
-            <ItemDetail detail={detail} />
+      {Object.keys(detail).length === 0 ? 
+        <h2>Loading...</h2>
+       : 
+        <ItemDetail detail={detail} />
+      }
     </div>
   );
-
 };
-
 
 export default ItemDetailContainer;
