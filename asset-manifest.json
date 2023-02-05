@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ProyectoReact-Asgard-Araya/static/css/main.4b712f21.css",
+    "main.js": "/ProyectoReact-Asgard-Araya/static/js/main.fd4afd36.js",
+    "static/js/787.f87a0711.chunk.js": "/ProyectoReact-Asgard-Araya/static/js/787.f87a0711.chunk.js",
+    "index.html": "/ProyectoReact-Asgard-Araya/index.html",
+    "main.4b712f21.css.map": "/ProyectoReact-Asgard-Araya/static/css/main.4b712f21.css.map",
+    "main.fd4afd36.js.map": "/ProyectoReact-Asgard-Araya/static/js/main.fd4afd36.js.map",
+    "787.f87a0711.chunk.js.map": "/ProyectoReact-Asgard-Araya/static/js/787.f87a0711.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b712f21.css",
+    "static/js/main.fd4afd36.js"
+  ]
+}
