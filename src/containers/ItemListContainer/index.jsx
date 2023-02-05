@@ -1,44 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../../components/ItemList";
-import { db } from "../../firebase/config";
-import { collection, getDocs, query, where } from "firebase/firestore"; 
+
 import "./styles.css";
+import useFirebase from "../../hooks/useFirebase";
 
 const ItemListContainer = () => {
-  const [products, setProducts] = useState([]);
+ 
 
-  const {categoryId} = useParams()
+  const { categoryId } = useParams();
 
-    useEffect(() => {
-      let querySnapshot;
-      const getProducts = async () => {
-        if (categoryId){
-      const q = query(collection(db, "products"), where("category", "==", categoryId));
-      querySnapshot = await getDocs(q);
-         } else{
-          querySnapshot = await getDocs(collection(db, "products"));
-         }
-      const productosFirebase = [];
-      querySnapshot.forEach((doc) => {
-        
-        const product ={
-          id: doc.id,
-          ...doc.data()
-        }
-        productosFirebase.push(product)
-      });
-      setProducts(productosFirebase)
-    }
-    getProducts();
+  const [products, loading, error] = useFirebase(categoryId);
 
-
-  }, [categoryId]);
-  
   return (
-    
-      <ItemList productos={products} />      
-   
+    <>
+      {error && <h1> Lo siento, hubo un error: {error}</h1>}
+      {loading ? <h1> Cargando...</h1> : <ItemList productos={products} />}
+    </>
   );
 };
 
