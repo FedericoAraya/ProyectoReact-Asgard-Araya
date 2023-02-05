@@ -1,15 +1,13 @@
 {
   "files": {
-    "main.css": "/ProyectoReact-Asgard-Araya/static/css/main.4b712f21.css",
-    "main.js": "/ProyectoReact-Asgard-Araya/static/js/main.fd4afd36.js",
-    "static/js/787.f87a0711.chunk.js": "/ProyectoReact-Asgard-Araya/static/js/787.f87a0711.chunk.js",
+    "main.css": "/ProyectoReact-Asgard-Araya/static/css/main.8ec0861e.css",
+    "main.js": "/ProyectoReact-Asgard-Araya/static/js/main.d9d35170.js",
     "index.html": "/ProyectoReact-Asgard-Araya/index.html",
-    "main.4b712f21.css.map": "/ProyectoReact-Asgard-Araya/static/css/main.4b712f21.css.map",
-    "main.fd4afd36.js.map": "/ProyectoReact-Asgard-Araya/static/js/main.fd4afd36.js.map",
-    "787.f87a0711.chunk.js.map": "/ProyectoReact-Asgard-Araya/static/js/787.f87a0711.chunk.js.map"
+    "main.8ec0861e.css.map": "/ProyectoReact-Asgard-Araya/static/css/main.8ec0861e.css.map",
+    "main.d9d35170.js.map": "/ProyectoReact-Asgard-Araya/static/js/main.d9d35170.js.map"
   },
   "entrypoints": [
-    "static/css/main.4b712f21.css",
-    "static/js/main.fd4afd36.js"
+    "static/css/main.8ec0861e.css",
+    "static/js/main.d9d35170.js"
   ]
 }
