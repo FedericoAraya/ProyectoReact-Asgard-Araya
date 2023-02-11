@@ -1,10 +1,14 @@
 import React, {  useState } from 'react';
+import { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import FormCompra from '../../components/FormCompra';
+import { Shop } from '../../context/ShopProvider';
 
 
 function FormContainer({finalizarCompra}) {
+ 
+
  
 
   const [show, setShow] = useState(false);
@@ -12,6 +16,7 @@ function FormContainer({finalizarCompra}) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  const {clienteOk} = useContext(Shop)
 
 
   return (
@@ -35,7 +40,7 @@ function FormContainer({finalizarCompra}) {
           <Button variant="secondary" onClick={handleClose}>
             Cancelar
           </Button>
-          <button className='btn btn-dark' onClick={()=>finalizarCompra()}>Confirmar Compra</button>           
+          {clienteOk && <button className='btn btn-dark' onClick={()=>finalizarCompra()}>Confirmar Compra</button>     }      
           </Modal.Footer>
       </Modal>
     </>

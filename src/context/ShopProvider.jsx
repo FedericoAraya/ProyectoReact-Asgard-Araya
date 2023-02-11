@@ -10,6 +10,8 @@ const ShopProvider = ({children}) => {
 
     const[ dataComprador , setDataComprador] = useState([])
 
+    const [clienteOk , setClienteOk] = useState(false)
+
     const addProduct = (product) => {
       const isInCart = isProductInCart(product.id);
       if (isInCart) {
@@ -54,12 +56,15 @@ const ShopProvider = ({children}) => {
   }
 
   const traerDataComprador = (datosIngresados) => {
-    console.log(datosIngresados);
-    setDataComprador(datosIngresados)
+      setDataComprador(datosIngresados)
+  }
+
+  const verificarCliente = (clienteVerificado) =>{    
+    setClienteOk(clienteVerificado)
   }
 
   return (
-    <Shop.Provider value = {{products, addProduct, countCart,total, vaciarCarrito, eliminarProducto, traerDataComprador, dataComprador}}>
+    <Shop.Provider value = {{products,verificarCliente, clienteOk , addProduct, countCart,total, vaciarCarrito, eliminarProducto, traerDataComprador, dataComprador}}>
         {children}
     </Shop.Provider >
   )

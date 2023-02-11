@@ -1,51 +1,47 @@
 import React, { useContext, useState } from "react";
-import { Shop } from '../../context/ShopProvider';
-import "./styles.css"
-
-
+import { Shop } from "../../context/ShopProvider";
+import "./styles.css";
 
 function FormCompra() {
-
-  const {traerDataComprador} = useContext(Shop);
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [emailVerification, setEmailVerification] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [errors, setErrors] = useState({}); 
+  const [errors, setErrors] = useState("");
 
-  
+  const { verificarCliente } = useContext(Shop);
 
   const handleSubmit = (event) => {
+    verificarCliente(false);
     event.preventDefault();
-
-     const datosIngresados = [firstName,lastName,email,phoneNumber]   
-     traerDataComprador(datosIngresados)
-     
-
-    setErrors({});
+    setErrors("");
 
     if (!firstName) {
       setErrors((prevErrors) => ({ ...prevErrors, firstName: "Required" }));
+      return;
     } else if (firstName.length < 2) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         firstName: "El nombre debe contener al menos 3 caracteres",
       }));
+      return;
     }
 
     if (!lastName) {
       setErrors((prevErrors) => ({ ...prevErrors, lastName: "Required" }));
+      return;
     } else if (lastName.length < 2) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         lastName: "El apellido debe contener al menos 3 caracteres",
       }));
+      return;
     }
 
     if (!email) {
       setErrors((prevErrors) => ({ ...prevErrors, email: "Required" }));
+      return;
     }
 
     if (!emailVerification) {
@@ -53,6 +49,7 @@ function FormCompra() {
         ...prevErrors,
         emailVerification: "Required",
       }));
+      return;
     }
 
     if (email !== emailVerification) {
@@ -60,6 +57,7 @@ function FormCompra() {
         ...prevErrors,
         emailVerification: "Los emails no coinciden",
       }));
+      return;
     }
 
     if (!phoneNumber) {
@@ -67,17 +65,22 @@ function FormCompra() {
         ...prevErrors,
         phoneNumber: "Required",
       }));
+      return;
     } else if (isNaN(phoneNumber)) {
       setErrors((prevErrors) => ({
         ...prevErrors,
         phoneNumber: "Ingresar solo números",
       }));
-    }  
+      return;
+    }
 
+    if (!errors && firstName && lastName && email && phoneNumber) {
+      verificarCliente(true);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} value= {{firstName}}>
+    <form onSubmit={handleSubmit} value={{ firstName }}>
       <label>
         Nombre:
         <input
@@ -133,7 +136,9 @@ function FormCompra() {
         {errors.phoneNumber && <span>{errors.phoneNumber}</span>}
       </label>
       <br />
-      <button type="submit" className="btn btn-primary">Verificar Datos</button>
+      <button type="submit" className="btn btn-primary">
+        Verificar Datos
+      </button>
     </form>
   );
 }
